@@ -15,19 +15,19 @@ namespace Gepro.SaaS.Application
 
         }
 
-        public IEnumerable<Gepro.SaaS.Domain.Entities.Person.Person> ListAll()
+        public IEnumerable<Gepro.SaaS.Domain.Entities.Person.Person> GetAll()
         {
-            return repository.ListAll();
+            return repository.GetAll();
         }
 
         public Gepro.SaaS.Domain.Entities.Person.Person ListById(int id)
         {
-            return repository.ListById(id);
+            return repository.GetById(id);
         }
 
         public void Remove(int id)
         {
-            repository.Remove(repository.ListById(id));
+            repository.Remove(repository.GetById(id));
         }
 
         public void Add(Gepro.SaaS.Domain.Entities.Person.Person person)
@@ -37,7 +37,7 @@ namespace Gepro.SaaS.Application
 
         public void Update(Gepro.SaaS.Domain.Entities.Person.Person person)
         {
-            repository.Update(person);
+            repository.Edit(person);
         }
 
     }

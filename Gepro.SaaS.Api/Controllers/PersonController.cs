@@ -16,13 +16,13 @@ namespace gepro.saas.api.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, app.ListAll());
+                return Request.CreateResponse(HttpStatusCode.OK, app.GetAll());
             }
             catch (Exception ex)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
             }
-           
+
         }
 
         [HttpGet]
@@ -80,7 +80,7 @@ namespace gepro.saas.api.Controllers
             {
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
             }
-            
+
         }
 
         [HttpPut]
