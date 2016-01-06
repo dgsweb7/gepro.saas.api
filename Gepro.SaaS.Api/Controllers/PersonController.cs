@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 
 namespace gepro.saas.api.Controllers
@@ -9,37 +12,100 @@ namespace gepro.saas.api.Controllers
 
         [HttpGet]
         [Route("person")]
-        public IEnumerable<Gepro.SaaS.Domain.Entities.Person.Person> GetAll()
+        public HttpResponseMessage GetAll()
         {
-           return app.ListAll();
+            try
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, app.ListAll());
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+           
         }
 
         [HttpGet]
         [Route("person/{id}")]
-        public Gepro.SaaS.Domain.Entities.Person.Person GetById(int id)
+        public HttpResponseMessage GetById(int id)
         {
-            return app.ListById(id);
+            try
+            {
+                var item = app.ListById(id);
+
+                if (item == null)
+                    throw new KeyNotFoundException();
+
+                return Request.CreateResponse(HttpStatusCode.OK, item);
+            }
+            catch (KeyNotFoundException)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Person not found");
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
         }
 
         [HttpDelete]
         [Route("person/{id}")]
-        public void Remove(int id)
+        public HttpResponseMessage Remove(int id)
         {
-            app.Remove(id);
+            try
+            {
+                app.Remove(id);
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
         }
 
         [HttpPost]
         [Route("person")]
-        public void Add([FromBody] Gepro.SaaS.Domain.Entities.Person.Person person)
+        public HttpResponseMessage Add([FromBody] Gepro.SaaS.Domain.Entities.Person.Person person)
         {
-            app.Add(person);
+            try
+            {
+                app.Add(person);
+
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created);
+                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { controller = "Person", id = person.Id }));
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+            
         }
 
         [HttpPut]
         [Route("person")]
-        public void Edit([FromBody] Gepro.SaaS.Domain.Entities.Person.Person person)
+        public HttpResponseMessage Edit([FromBody] Gepro.SaaS.Domain.Entities.Person.Person person)
         {
-            app.Update(person);
+            try
+            {
+                var item = app.ListById(person.Id);
+
+                if (item == null)
+                    throw new KeyNotFoundException();
+
+                app.Update(person);
+
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (KeyNotFoundException)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Person not found");
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
         }
 
     }
