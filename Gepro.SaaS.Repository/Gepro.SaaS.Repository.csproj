@@ -55,10 +55,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\BaseRepository.cs" />
+    <Compile Include="Data\Person\PersonTypeRepository.cs" />
     <Compile Include="Infrastructure\NHibernateHelper.cs" />
     <Compile Include="Interface\IBaseRepository.cs" />
     <Compile Include="Interface\Person\IPersonRepository.cs" />
+    <Compile Include="Interface\Person\IPersonTypeRepository.cs" />
     <Compile Include="Mapper\Person\PersonMapper.cs" />
+    <Compile Include="Mapper\Person\PersonTypeMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Data\Person\PersonRepository.cs" />
   </ItemGroup>

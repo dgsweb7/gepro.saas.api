@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gepro.SaaS.Application
+namespace Gepro.SaaS.Service
 {
-    public class PersonApplication
+    public class PersonService
     {
         private Repository.Data.Person.PersonRepository repository = new Repository.Data.Person.PersonRepository();
 
-        public PersonApplication()
+        public PersonService()
         {
 
         }
@@ -30,14 +30,14 @@ namespace Gepro.SaaS.Application
             repository.Remove(repository.GetById(id));
         }
 
-        public void Add(Gepro.SaaS.Domain.Entities.Person.Person person)
+        public void Add(Gepro.SaaS.Domain.Entities.Person.Person entity)
         {
-            repository.Add(person);
+            repository.Add(entity);
         }
 
-        public void Update(Gepro.SaaS.Domain.Entities.Person.Person person)
+        public void Update(Gepro.SaaS.Domain.Entities.Person.Person entity)
         {
-            repository.Edit(person);
+            repository.Edit(entity);
         }
 
     }

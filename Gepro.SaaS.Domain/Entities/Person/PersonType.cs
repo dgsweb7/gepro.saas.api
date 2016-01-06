@@ -8,6 +8,6 @@ namespace Gepro.SaaS.Domain.Entities.Person
 {
     public class PersonType : BaseEntity
     {
-        public virtual String Type { get; set; }
+        public virtual String Description { get; set; }
     }
 }

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gepro.SaaS.Domain", "Gepro.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gepro.SaaS.Repository", "Gepro.SaaS.Repository\Gepro.SaaS.Repository.csproj", "{A209F0B1-6BAB-4721-B2EF-9F7CC3336195}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gepro.SaaS.Application", "Gepro.SaaS.Application\Gepro.SaaS.Application.csproj", "{3DE4A090-B54D-444F-9D2B-6717DE04A076}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gepro.SaaS.Service", "Gepro.SaaS.Application\Gepro.SaaS.Service.csproj", "{3DE4A090-B54D-444F-9D2B-6717DE04A076}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

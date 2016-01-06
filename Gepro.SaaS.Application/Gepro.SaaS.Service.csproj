@@ -7,8 +7,8 @@
     <ProjectGuid>{3DE4A090-B54D-444F-9D2B-6717DE04A076}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Gepro.SaaS.Application</RootNamespace>
-    <AssemblyName>Gepro.SaaS.Application</AssemblyName>
+    <RootNamespace>Gepro.SaaS.Service</RootNamespace>
+    <AssemblyName>Gepro.SaaS.Service</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,7 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PersonApplication.cs" />
+    <Compile Include="Person\PersonService.cs" />
+    <Compile Include="Person\PersonTypeService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

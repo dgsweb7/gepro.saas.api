@@ -162,6 +162,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\PersonController.cs" />
+    <Compile Include="Controllers\PersonTypeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -183,11 +184,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Gepro.SaaS.Application\Gepro.SaaS.Application.csproj">
+    <ProjectReference Include="..\Gepro.SaaS.Application\Gepro.SaaS.Service.csproj">
       <Project>{3de4a090-b54d-444f-9d2b-6717de04a076}</Project>
-      <Name>Gepro.SaaS.Application</Name>
+      <Name>Gepro.SaaS.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\Gepro.SaaS.Domain\Gepro.SaaS.Domain.csproj">
       <Project>{bead8bef-df28-47df-9112-f7a30800efd2}</Project>

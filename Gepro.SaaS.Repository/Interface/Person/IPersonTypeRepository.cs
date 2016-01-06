@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gepro.SaaS.Repository.Interface.Person
 {
-    public interface IPersonRepository 
+    public class IPersonTypeRepository
     {
 
     }

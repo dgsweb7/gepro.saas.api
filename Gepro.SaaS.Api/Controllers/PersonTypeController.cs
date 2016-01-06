@@ -6,12 +6,12 @@ using System.Web.Http;
 
 namespace gepro.saas.api.Controllers
 {
-    public class PersonController : ApiController
+    public class PersonTypeController : ApiController
     {
-        Gepro.SaaS.Service.PersonService service = new Gepro.SaaS.Service.PersonService();
+        Gepro.SaaS.Service.Person.PersonTypeService service = new Gepro.SaaS.Service.Person.PersonTypeService();
 
         [HttpGet]
-        [Route("person")]
+        [Route("persontype")]
         public HttpResponseMessage GetAll()
         {
             try
@@ -26,7 +26,7 @@ namespace gepro.saas.api.Controllers
         }
 
         [HttpGet]
-        [Route("person/{id}")]
+        [Route("persontype/{id}")]
         public HttpResponseMessage GetById(int id)
         {
             try
@@ -49,7 +49,7 @@ namespace gepro.saas.api.Controllers
         }
 
         [HttpDelete]
-        [Route("person/{id}")]
+        [Route("persontype/{id}")]
         public HttpResponseMessage Remove(int id)
         {
             try
@@ -64,15 +64,15 @@ namespace gepro.saas.api.Controllers
         }
 
         [HttpPost]
-        [Route("person")]
-        public HttpResponseMessage Add([FromBody] Gepro.SaaS.Domain.Entities.Person.Person entity)
+        [Route("persontype")]
+        public HttpResponseMessage Add([FromBody] Gepro.SaaS.Domain.Entities.Person.PersonType entity)
         {
             try
             {
                 service.Add(entity);
 
                 HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created);
-                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { controller = "Person", id = entity.Id }));
+                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { controller = "PersonType", id = entity.Id }));
 
                 return response;
             }
@@ -84,8 +84,8 @@ namespace gepro.saas.api.Controllers
         }
 
         [HttpPut]
-        [Route("person")]
-        public HttpResponseMessage Edit([FromBody] Gepro.SaaS.Domain.Entities.Person.Person entity)
+        [Route("persontype")]
+        public HttpResponseMessage Edit([FromBody] Gepro.SaaS.Domain.Entities.Person.PersonType entity)
         {
             try
             {
@@ -107,6 +107,5 @@ namespace gepro.saas.api.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
             }
         }
-
     }
 }
