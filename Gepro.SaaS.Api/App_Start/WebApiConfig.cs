@@ -22,11 +22,22 @@ namespace gepro.saas.api
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            EnableCrossSiteRequests(config);
+
             config.Formatters.Remove(config.Formatters.XmlFormatter);
 
-            var corsAttr = new EnableCorsAttribute("http://geprosaasapi.apphb.com", "*", "*");
-            config.EnableCors(corsAttr);
+            //var corsAttr = new EnableCorsAttribute("http://geprosaasapi.apphb.com", "*", "*");
+            //config.EnableCors(corsAttr);
 
+        }
+
+        private static void EnableCrossSiteRequests(HttpConfiguration config)
+        {
+            var cors = new EnableCorsAttribute(
+                origins: "*",
+                headers: "*",
+                methods: "*");
+            config.EnableCors(cors);
         }
     }
 }
