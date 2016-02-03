@@ -7,9 +7,9 @@ namespace Gepro.SaaS.Repository.Infrastructure
 {
     public class NHibernateHelper
     {
-        private static ISessionFactory factory = CriaSessionFactory();
+        private static ISessionFactory factory = CreateSessionFactory();
 
-        private static ISessionFactory CriaSessionFactory()
+        private static ISessionFactory CreateSessionFactory()
         {
             Configuration cfg = new Configuration();
             cfg.Configure();
@@ -21,7 +21,7 @@ namespace Gepro.SaaS.Repository.Infrastructure
             return factory;
         }
 
-        public static ISession AbreSession()
+        public static ISession OpenConnection()
         {
             return factory.OpenSession();
         }

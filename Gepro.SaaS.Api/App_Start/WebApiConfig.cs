@@ -23,6 +23,7 @@ namespace gepro.saas.api
 
             config.Formatters.Remove(config.Formatters.XmlFormatter);
 
+            config.EnableCors();
 
         }
     }

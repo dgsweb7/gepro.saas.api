@@ -15,7 +15,7 @@ namespace Gepro.SaaS.Repository.Data
 
         public BaseRepository()
         {
-            this.session = Repository.Infrastructure.NHibernateHelper.AbreSession();
+            this.session = Repository.Infrastructure.NHibernateHelper.OpenConnection();
         }
 
         public void Add(T entity)
