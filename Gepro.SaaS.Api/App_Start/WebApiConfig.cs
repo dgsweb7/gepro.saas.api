@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace gepro.saas.api
 {
@@ -23,7 +24,8 @@ namespace gepro.saas.api
 
             config.Formatters.Remove(config.Formatters.XmlFormatter);
 
-            config.EnableCors();
+            var corsAttr = new EnableCorsAttribute("http://geprosaasapi.apphb.com", "*", "*");
+            config.EnableCors(corsAttr);
 
         }
     }
